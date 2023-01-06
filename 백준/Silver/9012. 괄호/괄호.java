@@ -19,20 +19,24 @@ public class Main {
 			System.out.println(result);
 
 		}
+		
+		
 	}
 	
 	static void run() {
-        
 		Stack<Character> stack = new Stack<>();
+        
+		result = "NO";
         
 		if(str.charAt(0)== ')'){
 			result = "NO";
 			return;
 		}
 		
+		
 		for(int i=0;i<str.length();i++) {
-            
 			char s = str.charAt(i);
+			
 			
 			if(s == '(') {
 				stack.push(s);
@@ -49,8 +53,10 @@ public class Main {
 		}
 		if(stack.size() == 0) {
 			result = "YES";
-		}else {
-			result = "NO";
 		}
+
+		
 	}
+	
+	
 }
