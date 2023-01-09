@@ -12,11 +12,6 @@ public class Main {
 		
 		dp = new int[1000001];
 		
-		
-		for(int i=3;i<dp.length;i++) {
-			dp[i] = -1;
-		}
-		
 		System.out.println(fibo(n));
 	}
 	
@@ -26,7 +21,7 @@ public class Main {
 		dp[1] = 1;
 		dp[2] = 2;
 		
-		if(dp[n] == -1) {
+		if(dp[n] == 0) {
 			dp[n] = (fibo(n-2) + fibo(n-1)) % 15746;
 		}
 		return dp[n];
