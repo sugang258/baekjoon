@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -56,10 +55,11 @@ public class Main {
 	
 	static void pop() {
 		if(stack.empty()) {
-			sb.append("-1 \n");
+			sb.append("-1");
 		}else {
-			sb.append(stack.pop()).append("\n");
+			sb.append(stack.pop());
 		}
+		sb.append("\n");
 	}
 	
 	static void count() {
@@ -68,18 +68,19 @@ public class Main {
 	
 	static void empty() {
 		if(stack.empty()) {
-			sb.append("1").append("\n");
+			sb.append("1");
 		}else {
-			sb.append("0").append("\n");
+			sb.append("0");
 		}
+		sb.append("\n");
 	}
 	
 	static void peek() {
 		if(stack.empty()) {
-			sb.append("-1").append("\n");
+			sb.append("-1");
 		}else {
-			sb.append(stack.peek()).append("\n");
+			sb.append(stack.peek());
 		}
+		sb.append("\n");
 	}
-	
 }
