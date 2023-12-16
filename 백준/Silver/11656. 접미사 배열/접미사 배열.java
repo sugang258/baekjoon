@@ -20,9 +20,9 @@ public class Main {
         
         Collections.sort(ar);
         
-        for(int i=0;i<ar.size();i++) {
-        	System.out.println(ar.get(i));
-        } 
+        for(String str : ar) {
+        	System.out.println(str);
+        }
     }
 
 }
