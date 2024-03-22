@@ -1,63 +1,40 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
-public class Main {	
-	
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static StringTokenizer st;
-	static StringBuilder sb = new StringBuilder();
-	
-	static ArrayList<ArrayList<Integer>> ar = new ArrayList<>();
-	static int[] check;
-	static int count;
-	
-	public static void main(String[] args) throws IOException {
-		
-		
-		int N = Integer.parseInt(br.readLine());
-		int M = Integer.parseInt(br.readLine());
-		
-		check = new int[N + 1];
-		
-		for(int i=0;i<N+1;i++) {
-			ar.add(new ArrayList<>());
-		}
-		
-		for(int i=0;i<M;i++) {
-			st = new StringTokenizer(br.readLine());
-			
-			int u = Integer.parseInt(st.nextToken());
-			int v = Integer.parseInt(st.nextToken());
-			
-			ar.get(u).add(v);
-			ar.get(v).add(u);
-		}
-		count = 0;
-		
-		dfs(1);
-		System.out.println(count-1);
-		
-	}
-	
-	static void dfs(int v) {
-		
-		check[v] = count;
-		
-		for(int i=0;i<ar.get(v).size();i++) {
-			int newVertex = ar.get(v).get(i);
-			
-			if(check[newVertex] == 0) {
-				count++;
-				dfs(newVertex);
-			}
-		}
+public class Main {
+    static int n, m, cnt;
+    static int[][] graph;
+    static int[] ch;
 
-	}
-		
-	
-	
+
+    public void DFS(int v) {
+        ch[v] = 1;
+        cnt++;
+
+        for (int i = 1; i <= n; i++) {
+            if(graph[v][i] == 1 && ch[i] == 0) {
+                DFS(i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        graph = new int[n+1][n+1];
+        ch = new int[n+1];
+
+        for (int i = 0; i < m; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+
+            graph[a][b] = 1;
+            graph[b][a] = 1;
+        }
+        T.DFS(1);
+        System.out.println(cnt-1);
+    }
 }
-	
